@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <title>Quick Reflex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="." aria-label="Quick Reflex home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>quick<span class="brand-accent">reflex</span></span>
+      </a>
+      <div class="topbar-meta"><span class="live-dot"></span> reaction lab <span class="meta-divider"></span> <span id="round-label">round 1 / 5</span></div>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow" id="eyebrow">A tiny test of a big instinct</p>
+        <h1 id="page-title">How quick<br><em>are you?</em></h1>
+      </div>
+      <p class="intro-copy" id="intro-copy">Wait for the signal.<br>Click as fast as you can.</p>
+    </section>
+
+    <nav class="mode-switcher" aria-label="Choose a game">
+      <button class="mode-tab active" id="reaction-mode" type="button" aria-pressed="true"><span>01</span> reaction time</button>
+      <button class="mode-tab" id="target-mode" type="button" aria-pressed="false"><span>02</span> target rush</button>
+      <button class="mode-tab" id="cursor-mode" type="button" aria-pressed="false"><span>03</span> cursor flow</button>
+    </nav>
+
+    <section class="test-layout" aria-label="Reaction test">
+      <button class="reaction-zone" id="reaction-zone" type="button" aria-label="Reaction test area">
+        <span class="zone-grid" aria-hidden="true"></span>
+        <span class="zone-content">
+          <span class="signal-icon" id="signal-icon" aria-hidden="true"><span></span></span>
+          <span class="zone-title" id="zone-title">Ready when you are</span>
+          <span class="zone-hint" id="zone-hint">Press start to begin</span>
+        </span>
+        <span class="target-hud" id="target-hud"><strong id="target-progress">0</strong><span> targets left</span><b id="target-clock">0.0s</b></span>
+        <span class="target-dot" id="target-dot" aria-hidden="true"></span>
+        <span class="cursor-orb" id="cursor-orb" aria-hidden="true"></span>
+        <span class="zone-corner corner-tl" aria-hidden="true"></span>
+        <span class="zone-corner corner-br" aria-hidden="true"></span>
+      </button>
+
+      <aside class="score-panel" aria-label="Your scores">
+        <div class="panel-heading"><span id="panel-title">your session</span><span class="round-count" id="session-count">0 / 5</span></div>
+        <div class="current-score">
+          <span class="score-label" id="score-label">latest reaction</span>
+          <strong id="latest-score">—</strong>
+          <span class="score-unit" id="score-unit">milliseconds</span>
+        </div>
+        <div class="stat-row"><span id="average-label">session average</span><strong id="average-score">—</strong></div>
+        <div class="stat-row"><span id="best-label">best ever</span><strong id="best-score">—</strong></div>
+        <div class="pace-control" id="pace-control">
+          <span class="score-label">target pace</span>
+          <div class="pace-options" role="group" aria-label="Target pace">
+            <button class="pace-option active" type="button" data-pace="fast">fast</button>
+            <button class="pace-option" type="button" data-pace="steady">steady</button>
+            <button class="pace-option" type="button" data-pace="slow">slow</button>
+          </div>
+        </div>
+        <div class="difficulty-control" id="difficulty-control">
+          <span class="score-label">time limit</span>
+          <div class="pace-options" role="group" aria-label="Cursor Flow difficulty">
+            <button class="difficulty-option active" type="button" data-difficulty="easy">easy · 20s</button>
+            <button class="difficulty-option" type="button" data-difficulty="focused">focused · 12s</button>
+            <button class="difficulty-option" type="button" data-difficulty="expert">expert · 7s</button>
+          </div>
+        </div>
+        <div class="score-list" id="score-list" aria-live="polite">
+          <div class="empty-score">Your results will<br>land here.</div>
+        </div>
+        <button class="start-button" id="start-button" type="button"><span>Start test</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+      </aside>
+    </section>
+
+    <footer class="footer"><span id="footer-copy">Five rounds. One average.</span><span class="keyboard-note"><kbd>SPACE</kbd> also works</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
